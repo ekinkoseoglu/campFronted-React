@@ -5,7 +5,7 @@ import CartSummary from "./CartSummary";
 const Navi = () => {
   return (
     <div>
-      <Menu inverted fixed>
+      <Menu inverted fixed="top">
         <Container>
           <Menu.Item name="home" />
           <Menu.Item name="messages" />
