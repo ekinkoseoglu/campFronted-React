@@ -10,7 +10,7 @@ const Navi = () => {
           <Menu.Item name="home" />
           <Menu.Item name="messages" />
 
-          <Menu.Menu inverted position="right">
+          <Menu.Menu position="right">
             <CartSummary />
             <Menu.Item>
               <Button primary>Sign Up</Button>

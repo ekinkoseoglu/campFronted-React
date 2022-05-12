@@ -9,7 +9,9 @@ const ProductList = () => {
     let productService = new ProductService();
     productService
       .getProducts()
-      .then((result) => setProducts(result.data.data))
+      .then((response) => {
+        setProducts(response.data.data);
+      })
       .catch();
   });
   return (
