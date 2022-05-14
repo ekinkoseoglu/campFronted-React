@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-
 import { Icon, Menu, Table } from "semantic-ui-react";
 import ProductService from "../services/productService";
+
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
+  let temporaryProducts = [];
+  const [products, setProducts] = useState(temporaryProducts);
 
   useEffect(() => {
     let productService = new ProductService();
@@ -13,7 +14,7 @@ const ProductList = () => {
         setProducts(response.data.data);
       })
       .catch();
-  });
+  }, []);
   return (
     <div>
       <Table celled>
