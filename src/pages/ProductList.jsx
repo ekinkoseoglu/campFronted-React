@@ -3,10 +3,11 @@ import { Icon, Menu, Table } from "semantic-ui-react";
 import ProductService from "../services/productService";
 
 const ProductList = () => {
-  let temporaryProducts = [];
+  const temporaryProducts = [];
   const [products, setProducts] = useState(temporaryProducts);
 
   useEffect(() => {
+    console.log("Selam");
     let productService = new ProductService();
     productService
       .getProducts()
