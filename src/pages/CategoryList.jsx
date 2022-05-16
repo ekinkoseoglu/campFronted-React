@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react/cjs/react.production.min";
-import { Menu } from "semantic-ui-react";
+import { Table } from "semantic-ui-react";
 import CategoryService from "../services/categoryService";
 
-const Categories = () => {
+const CategoryList = () => {
   const tempCategories = [];
   const [categories, setCategories] = useState(tempCategories);
 
@@ -13,15 +13,26 @@ const Categories = () => {
       setCategories(response.data.data).catch();
     });
   }, []);
+
   return (
-    <div>
-      <Menu pointing vertical>
+    <Table celled>
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell>Category Name</Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
+
+      <Table.Body>
         {categories.map((category) => {
-          <Menu.Item name={category.CategoryName} />;
+          <Table.Row key={category.CategoryId}>
+            <Table.Cell>{category.CategoryName}</Table.Cell>
+          </Table.Row>;
         })}
-      </Menu>
-    </div>
+      </Table.Body>
+
+      <Table.Footer></Table.Footer>
+    </Table>
   );
 };
 
-export default Categories;
+export default CategoryList;
