@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
+import CategoryList from "../pages/CategoryList";
 import ProductList from "../pages/ProductList";
-import Categories from "./Categories";
 
 const Dashboard = () => {
   return (
@@ -9,7 +9,7 @@ const Dashboard = () => {
       <Grid>
         <Grid.Row>
           <Grid.Column width={4}>
-            <Categories />
+            <CategoryList />
           </Grid.Column>
 
           <Grid.Column width={12}>

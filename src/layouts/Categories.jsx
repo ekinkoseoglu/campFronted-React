@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react/cjs/react.production.min";
+import React, { useEffect, useState } from "react";
 import { Menu } from "semantic-ui-react";
 import CategoryService from "../services/categoryService";
 

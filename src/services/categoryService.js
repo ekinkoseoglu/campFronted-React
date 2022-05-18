@@ -1,17 +1,13 @@
-import { axios } from "axios";
+import axios from "axios";
 
 export default class CategoryService {
-  constructor(globalAPI) {
-    this.globalAPI = "https://localhost:44360/api/categories/";
-  }
-
   getCategories = () => {
-    const localAPI = "getall";
-    return axios.get(this.globalAPI + localAPI);
+    const localAPI = "https://localhost:44360/api/categories/getall";
+    return axios.get(localAPI);
   };
 
   getByCategoryID = (id) => {
-    const localAPI = "getbyid?id=";
-    return axios.get(this.globalAPI + localAPI + id);
+    const localAPI = "https://localhost:44360/api/categories/getbyid?id=";
+    return axios.get(localAPI + id);
   };
 }
