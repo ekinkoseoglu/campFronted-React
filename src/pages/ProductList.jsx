@@ -7,7 +7,6 @@ const ProductList = () => {
   const [products, setProducts] = useState(temporaryProducts);
 
   useEffect(() => {
-    console.log("Selam");
     let productService = new ProductService();
     productService
       .getProducts()
