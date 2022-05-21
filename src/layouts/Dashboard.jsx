@@ -5,6 +5,8 @@ import CategoryList from "../pages/CategoryList";
 import ProductList from "../pages/ProductList";
 import ProductDetail from "../pages/ProductDetail";
 import CartDetail from "../pages/CartDetail";
+import "./Dashboard.css";
+
 const Dashboard = () => {
   return (
     <div>
@@ -16,8 +18,9 @@ const Dashboard = () => {
 
           <Grid.Column width={12}>
             <Route exact path="/" component={ProductList} />
-            <Route exact path="/product/:id" component={ProductDetail} />
-            <Route path="/cart" component={CartDetail} />
+            <Route exact path="/products" component={ProductList} />
+            <Route exact path="/products/:id" component={ProductDetail} />
+            <Route exact path="/cart" component={CartDetail} />
           </Grid.Column>
         </Grid.Row>
       </Grid>
