@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default class ProductService {
   constructor(globalAPI) {
-    this.globalAPI = "https://localhost:44360/api/Products/";
+    this.globalAPI = "https://localhost:44360/api/products/";
   }
   getProducts = () => {
     const localAPI = "getall";

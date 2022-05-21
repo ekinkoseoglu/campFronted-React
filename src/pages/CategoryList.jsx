@@ -3,7 +3,8 @@ import { Table } from "semantic-ui-react";
 import CategoryService from "../services/categoryService";
 
 const CategoryList = () => {
-  const [categories, setCategories] = useState([]);
+  const tempArray = [];
+  const [categories, setCategories] = useState(tempArray);
 
   useEffect(() => {
     let categoryService = new CategoryService();
@@ -11,7 +12,6 @@ const CategoryList = () => {
       .getCategories()
       .then((response) => {
         setCategories(response.data.data);
-        console.log(response.data.data);
       })
       .catch();
   }, []);

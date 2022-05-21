@@ -8,16 +8,19 @@ const Categories = () => {
 
   useEffect(() => {
     let categoryService = new CategoryService();
-    categoryService.getCategories().then((response) => {
-      setCategories(response.data.data).catch();
-    });
+    categoryService
+      .getCategories()
+      .then((response) => {
+        setCategories(response.data.data);
+      })
+      .catch();
   }, []);
   return (
     <div>
       <Menu pointing vertical>
-        {categories.map((category) => {
-          <Menu.Item name={category.CategoryName} />;
-        })}
+        {categories.map((category) => (
+          <Menu.Item name={category.categoryName} />
+        ))}
       </Menu>
     </div>
   );
