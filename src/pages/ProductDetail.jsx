@@ -5,11 +5,11 @@ import ProductService from "../services/productService";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
-  let { id } = useParams();
+  let { productId } = useParams();
 
   useEffect(() => {
     let productService = new ProductService();
-    productService.getProductByID(id).then((response) => {
+    productService.getProductByID(productId).then((response) => {
       setProduct(response.data.data);
       console.log(response.data.data);
     });
