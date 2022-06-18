@@ -18,4 +18,9 @@ export default class ProductService {
     const localAPI = "getbycategory?categoryId=";
     return axios.get(this.globalAPI + localAPI + categoryId);
   };
+
+  addProduct = (product) => {
+    const localAPI = "add";
+    return axios.post(this.globalAPI + localAPI, product);
+  };
 }
