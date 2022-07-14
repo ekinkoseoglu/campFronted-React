@@ -30,14 +30,15 @@ const Navi = () => {
         <Container>
           <Menu.Item name="home" />
           <Menu.Item name="messages" />
-          {isAuthenticated && (
+          {!isAuthenticated && (
             <Menu.Item as={NavLink} to="/products/add">
               {" "}
               Add Product
             </Menu.Item>
           )}
+
           <Menu.Menu position="right">
-            <CartSummary />
+            {isAuthenticated && <CartSummary />}
             {isAuthenticated && <SignedIn signOut={handleSignOut} />}
             {!isAuthenticated && <SignedOut signIn={handleSignIn} />}
           </Menu.Menu>
