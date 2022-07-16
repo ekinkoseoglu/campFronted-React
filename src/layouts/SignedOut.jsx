@@ -12,7 +12,7 @@ const SignedOut = (props) => {
       </Link>
 
       <Button primary style={{ marginLeft: "0.5em" }}>
-        Sign Up
+        Sign-Up
       </Button>
     </Menu.Item>
   );
