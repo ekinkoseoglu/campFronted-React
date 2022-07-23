@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Button, Icon, Menu, Table } from "semantic-ui-react";
 import ProductService from "../services/productService";
+import { addToCart } from "../store/actions/cartActions";
+import { toast } from "react-toastify/dist/react-toastify.cjs.production.min";
 
 const ProductList = () => {
+  const dispatch = useDispatch(); // useDispatch() is a hook that returns the dispatch function from the redux store
   const temporaryProducts = [];
   const [products, setProducts] = useState(temporaryProducts);
 
@@ -16,6 +20,12 @@ const ProductList = () => {
       })
       .catch();
   }, []);
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    toast.success(`${product.productName} added to cart`);
+  };
+
   return (
     <div>
       <Table celled>
@@ -33,14 +43,23 @@ const ProductList = () => {
               <Table.Cell>{product.productName}</Table.Cell>
               <Table.Cell>{product.unitPrice}</Table.Cell>
               <Table.Cell>{product.unitsInStock}</Table.Cell>
-
-              <Button
-                className="primary"
-                as={NavLink}
-                to={`/products/${product.productId}`} // (Altgr + ",")
-              >
-                Product Detail
-              </Button>
+              <Table.Cell>
+                <Button
+                  className="primary"
+                  as={NavLink}
+                  to={`/products/${product.productId}`} // (Altgr + ",")
+                >
+                  Product Detail
+                </Button>
+              </Table.Cell>
+              <Table.Cell>
+                <Button
+                  className="secondary"
+                  onClick={() => handleAddToCart(product)}
+                >
+                  Add To Cart
+                </Button>
+              </Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>

@@ -5,11 +5,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "semantic-ui-css/semantic.min.css";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { ConfigureStore } from "./store/configureStore";
+import "react-toastify/dist/ReactToastify.min.css";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={ConfigureStore()}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 

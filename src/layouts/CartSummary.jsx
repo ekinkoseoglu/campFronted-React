@@ -1,15 +1,22 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { Dropdown, Menu } from "semantic-ui-react";
+import { Dropdown, Label, Menu } from "semantic-ui-react";
 
 const CartSummary = () => {
+  const { cartItems } = useSelector((state) => state.cart);
+
   return (
     <div>
       <Menu.Item>
         <Dropdown item text="Cart">
           <Dropdown.Menu>
-            <Dropdown.Item>Acer Laptop</Dropdown.Item>
-            <Dropdown.Item>Asus Laptop</Dropdown.Item>
+            {cartItems.map((item) => (
+              <Dropdown.Item key={item.product.productId}>
+                {item.product.productName}
+                <Label key={item.productId}>{item.quantity}</Label>
+              </Dropdown.Item>
+            ))}
             <Dropdown.Divider />
             <Dropdown.Item as={NavLink} to="/cart">
               Cart

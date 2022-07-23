@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 import { Container, Menu } from "semantic-ui-react";
 import CartSummary from "./CartSummary";
@@ -6,6 +7,7 @@ import SignedIn from "./SignedIn";
 import SignedOut from "./SignedOut";
 
 const Navi = () => {
+  const { cartItems } = useSelector((state) => state.cart);
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const location = useLocation();
 
@@ -34,7 +36,7 @@ const Navi = () => {
           )}
 
           <Menu.Menu position="right">
-            {isAuthenticated && <CartSummary />}
+            {cartItems.length > 0 && <CartSummary />}
             {isAuthenticated && <SignedIn signOut={handleSignOut} />}
             {!isAuthenticated && <SignedOut signIn={handleSignIn} />}
           </Menu.Menu>

@@ -7,11 +7,11 @@ import ProductDetail from "../pages/ProductDetail";
 import CartDetail from "../pages/CartDetail";
 import "./Dashboard.css";
 import AddProduct from "../pages/AddProduct";
-import { useLocation } from "react-router-dom";
+import { ToastContainer } from "react-toastify/dist/react-toastify.cjs.production.min";
 const Dashboard = () => {
-  let location = useLocation();
   return (
     <div>
+      <ToastContainer position="bottom-right" />
       <Grid>
         <Grid.Row>
           <Grid.Column width={4}>
