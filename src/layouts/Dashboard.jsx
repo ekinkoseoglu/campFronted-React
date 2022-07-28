@@ -29,8 +29,9 @@ const Dashboard = () => {
                 path="/products/:productId"
                 element={<ProductDetail />}
               />
-              <Route exact path="/products/add" element={<AddProduct />} />
+
               <Route exact path="/cart" element={<CartDetail />} />
+              <Route exact path="/product/add" element={<AddProduct />} />
             </Routes>
           </Grid.Column>
         </Grid.Row>

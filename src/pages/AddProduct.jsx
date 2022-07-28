@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import ProductService from "../services/productService";
+import { toast } from "react-toastify/dist/react-toastify.cjs.production.min";
 
 import "./AddProduct.css";
 
@@ -15,7 +16,13 @@ const AddProduct = () => {
       unitPrice: "",
     },
     onSubmit: (values) => {
-      this.productService.addProduct(values);
+      productService
+        .addProduct(values)
+        .then((response) => {
+          toast.success(`${values.productName} added to cart`);
+        })
+        .catch((error) => toast.error(`${error.response.data.message}`));
+
       console.log("Product Added");
     },
   });
