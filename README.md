@@ -1,4 +1,4 @@
-This is the Frontend side of my E-Commerce Project
+This is the Frontend side of my E-Commerce Project which is structured with React
  
 ## Used Technologies And Principles
 
