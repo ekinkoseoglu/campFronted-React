@@ -2,11 +2,13 @@ This is the Frontend side of my E-Commerce Project which is structured with Reac
  
 ## Used Technologies And Principles
 
-- NG Modules
-- Routing and navigation
-- Dependency injection
-- Lifecycle hooks
-- Observables and event processing
-- An gular elements
-- Forms
-- Authentication and Authorization
+- Axios (CRUD Apı Operations)
+- Javascript Fetch API
+- React Router Dom (Router Manipulation)
+- Redux
+- Built-in Html and Javascript Form features
+- Material UI
+- Formik (for third party form state package)
+- Yup (For creating form Validation schemas)
+- Semantic UI React
+
